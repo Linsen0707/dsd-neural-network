@@ -1,0 +1,2 @@
+sch2vhdl -intstyle ise -family spartan3e -flat -suppress -w "C:/Projects/Mircea's_Projects/Board_Tests/Basys/WP9.2/Demo/UncompiledBasysRevEDemo/BasysRevEDemo.sch" BasysRevEDemo.vhf
+sch2vhdl -intstyle ise -family spartan3e -flat -suppress -w "C:/Projects/Mircea's_Projects/Board_Tests/Basys/WP9.2/Demo/UncompiledBasysRevEDemo/BasysRevEDemo.sch" BasysRevEDemo.vhf
