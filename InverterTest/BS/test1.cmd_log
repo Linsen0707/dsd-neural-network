@@ -1,0 +1,13 @@
+xst -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -ifn "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.xst" -ofn "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.syr"
+ngdbuild -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s100e-tq144-5 "test1.ngc" test1.ngd
+map -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -p xc3s100e-tq144-5 -cm area -pr off -k 4 -c 100 -o test1_map.ncd test1.ngd test1.pcf
+par -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -w -intstyle ise -ol std -t 1 test1_map.ncd test1.ncd test1.pcf
+trce -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -v 3 -s 5 -xml test1 test1.ncd -o test1.twr test1.pcf
+ngdbuild -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s100e-tq144-5 "test1.ngc" test1.ngd
+ngdbuild -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s100e-tq144-5 "test1.ngc" test1.ngd
+xst -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -ifn "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.xst" -ofn "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.syr"
+ngdbuild -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s100e-tq144-5 "test1.ngc" test1.ngd
+map -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -p xc3s100e-tq144-5 -cm area -pr off -k 4 -c 100 -o test1_map.ncd test1.ngd test1.pcf
+par -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -w -intstyle ise -ol std -t 1 test1_map.ncd test1.ncd test1.pcf
+trce -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -v 3 -s 5 -xml test1 test1.ncd -o test1.twr test1.pcf -ucf BasysBist.ucf
+bitgen -ise "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/BS.ise" -intstyle ise -f test1.ut test1.ncd

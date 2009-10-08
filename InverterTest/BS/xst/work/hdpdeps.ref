@@ -1,0 +1,9 @@
+V3 3
+FL "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.vhd" 2009/10/07.17:38:24 K.39
+EN work/test1 1254951515 \
+      FL "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.vhd" \
+      PB ieee/std_logic_1164 1217055545 PB ieee/std_logic_arith 1217055546 \
+      PB ieee/STD_LOGIC_UNSIGNED 1217055547
+AR work/test1/Behavioral 1254951516 \
+      FL "C:/Documents and Settings/sxs5464/Desktop/FPGA-BS/BS/test1.vhd" \
+      EN work/test1 1254951515
