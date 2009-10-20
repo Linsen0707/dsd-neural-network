@@ -1,0 +1,5 @@
+set -tmpdir "/home/karantza/Desktop/dsd-nn/xst/projnav.tmp"
+set -xsthdpdir "/home/karantza/Desktop/dsd-nn/xst"
+elaborate
+-ifn Connection.prj
+-ifmt mixed

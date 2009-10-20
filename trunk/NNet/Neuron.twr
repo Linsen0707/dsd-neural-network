@@ -1,0 +1,87 @@
+--------------------------------------------------------------------------------
+Release 11.1 Trace  (lin)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/11.1/ISE/bin/lin/unwrapped/trce -ise
+/home/karantza/Desktop/dsd-nn/dsd-nn.ise -intstyle ise -v 3 -s 5 -fastpaths
+-xml Neuron.twx Neuron.ncd -o Neuron.twr Neuron.pcf
+
+Design file:              Neuron.ncd
+Physical constraint file: Neuron.pcf
+Device,package,speed:     xc3s100e,vq100,-5 (PRODUCTION 1.27 2009-03-03)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+c<0>           |outsignal<0>   |    6.547|
+c<0>           |outsignal<1>   |    8.614|
+c<0>           |outsignal<2>   |   10.344|
+c<0>           |outsignal<3>   |   12.466|
+c<0>           |outsignal<4>   |   13.977|
+c<0>           |outsignal<5>   |   15.746|
+c<0>           |outsignal<6>   |   17.687|
+c<0>           |outsignal<7>   |   19.451|
+c<1>           |outsignal<1>   |    6.926|
+c<1>           |outsignal<2>   |    8.656|
+c<1>           |outsignal<3>   |   10.778|
+c<1>           |outsignal<4>   |   12.289|
+c<1>           |outsignal<5>   |   14.058|
+c<1>           |outsignal<6>   |   15.999|
+c<1>           |outsignal<7>   |   17.763|
+c<2>           |outsignal<2>   |    6.489|
+c<2>           |outsignal<3>   |    8.611|
+c<2>           |outsignal<4>   |   10.122|
+c<2>           |outsignal<5>   |   11.891|
+c<2>           |outsignal<6>   |   13.832|
+c<2>           |outsignal<7>   |   15.596|
+c<3>           |outsignal<3>   |    6.588|
+c<3>           |outsignal<4>   |    8.099|
+c<3>           |outsignal<5>   |    9.868|
+c<3>           |outsignal<6>   |   11.809|
+c<3>           |outsignal<7>   |   13.573|
+c<4>           |outsignal<4>   |    6.384|
+c<4>           |outsignal<5>   |    8.153|
+c<4>           |outsignal<6>   |   10.094|
+c<4>           |outsignal<7>   |   11.858|
+c<5>           |outsignal<5>   |    6.414|
+c<5>           |outsignal<6>   |    8.355|
+c<5>           |outsignal<7>   |   10.119|
+c<6>           |outsignal<6>   |    6.456|
+c<6>           |outsignal<7>   |    8.220|
+c<7>           |outsignal<7>   |    6.674|
+---------------+---------------+---------+
+
+
+Analysis completed Mon Oct 19 17:35:55 2009 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 78 MB
+
+
+

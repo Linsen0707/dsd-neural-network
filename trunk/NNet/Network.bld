@@ -1,0 +1,50 @@
+Release 11.1 ngdbuild L.33 (lin)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/11.1/ISE/bin/lin/unwrapped/ngdbuild -ise dsd-nn.ise
+-intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 Network.ngc
+Network.ngd
+
+Reading NGO file "/home/karantza/Desktop/dsd-nn/Network.ngc" ...
+Loading design module "/home/karantza/Desktop/dsd-nn/Network.ngc"...
+WARNING:NgdBuild:578 - Design contains no instances.
+Reading in constraint information from 'BasysBist.ucf'...
+Gathering constraint information from source properties...
+Done.
+
+Resolving constraint associations...
+Checking Constraint Associations...
+ERROR:ConstraintSystem:59 - Constraint <NET "Led"    LOC = "P15";>
+   [BasysBist.ucf(50)]: NET "Led" not found.  Please verify that:
+   1. The specified design element actually exists in the original design.
+   2. The specified object is spelled correctly in the constraint source file.
+
+ERROR:ConstraintSystem:59 - Constraint <NET "sw"     LOC = "P38";>
+   [BasysBist.ucf(60)]: NET "sw" not found.  Please verify that:
+   1. The specified design element actually exists in the original design.
+   2. The specified object is spelled correctly in the constraint source file.
+
+Done...
+Checking Partitions ...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     2
+  Number of warnings:   1
+
+Total memory usage is 76260 kilobytes
+
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
+
+One or more errors were found during NGDBUILD.  No NGD file will be written.
+
+Writing NGDBUILD log file "Network.bld"...
