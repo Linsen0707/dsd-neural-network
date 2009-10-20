@@ -1,0 +1,4 @@
+xst -ise "/home/karantza/Desktop/dsd-nn/dsd-nn.ise" -intstyle ise -ifn "/home/karantza/Desktop/dsd-nn/Network.xst" -ofn "/home/karantza/Desktop/dsd-nn/Network.syr" 
+ngdbuild -ise "dsd-nn.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 Network.ngc Network.ngd  
+ngdbuild -ise "dsd-nn.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 Network.ngc Network.ngd  
+ngdbuild -ise "dsd-nn.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 Network.ngc Network.ngd  

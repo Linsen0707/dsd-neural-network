@@ -1,0 +1,16 @@
+Running: /opt/Xilinx/11.1/ISE/bin/lin/unwrapped/fuse -ise /home/karantza/Desktop/dsd-nn/dsd-nn.ise -intstyle ise -incremental -o /home/karantza/Desktop/dsd-nn/Neuron_isim_beh.exe -prj /home/karantza/Desktop/dsd-nn/Neuron_beh.prj Neuron 
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Analyzing VHDL file "/home/karantza/Desktop/dsd-nn/Neuron.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 26568 KB
+Fuse CPU Usage: 280 ms
+Using precompiled package standard from library std
+Using precompiled package std_logic_1164 from library ieee
+Using precompiled package std_logic_arith from library ieee
+Using precompiled package std_logic_unsigned from library ieee
+Compiling architecture behavioral of entity neuron
+Time Resolution for simulation is 1ps.
+FATAL_ERROR:Simulator:Fuse.cpp:217:1.95 - Failed to compile one of the generated C code. Please recompile with -mt off -v 1 switch to identify which design unit failed.  Process will terminate. For technical support on this issue, please open a WebCase with this project attached at http://www.xilinx.com/support.

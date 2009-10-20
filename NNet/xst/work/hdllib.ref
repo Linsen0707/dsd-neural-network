@@ -1,0 +1,6 @@
+EN neuron NULL /home/karantza/Desktop/dsd-nn/Neuron.vhd sub00/vhpl00 1255991589
+AR neuron behavioral /home/karantza/Desktop/dsd-nn/Neuron.vhd sub00/vhpl01 1255991590
+AR network behavioral /home/karantza/Desktop/dsd-nn/Network.vhd sub00/vhpl05 1255991594
+EN network NULL /home/karantza/Desktop/dsd-nn/Network.vhd sub00/vhpl04 1255991593
+AR connection behavioral /home/karantza/Desktop/dsd-nn/Connection.vhd sub00/vhpl03 1255991592
+EN connection NULL /home/karantza/Desktop/dsd-nn/Connection.vhd sub00/vhpl02 1255991591

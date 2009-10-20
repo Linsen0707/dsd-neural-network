@@ -1,0 +1,3 @@
+vhdl work "Neuron.vhd"
+vhdl work "Connection.vhd"
+vhdl work "Network.vhd"
