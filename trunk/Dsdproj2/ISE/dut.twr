@@ -1,0 +1,65 @@
+--------------------------------------------------------------------------------
+Release 9.2i Trace 
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx92i\bin\nt\trce.exe -ise X:/Desktop/dsdproj/ISE/DSD.ise -intstyle ise
+-e 3 -s 5 -xml DUT DUT.ncd -o DUT.twr DUT.pcf -ucf
+X:/Desktop/InverterTest/InverterTest/BS/BasysBist.ucf
+
+Design file:              dut.ncd
+Physical constraint file: dut.pcf
+Device,package,speed:     xc3s100e,tq144,-5 (PRODUCTION 1.26 2007-04-13)
+Report level:             error report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+sw<0>          |led<0>         |   32.221|
+sw<0>          |led<1>         |   32.323|
+sw<0>          |led<2>         |   32.266|
+sw<0>          |led<3>         |   31.790|
+sw<0>          |led<4>         |   32.030|
+sw<0>          |led<5>         |   32.030|
+sw<0>          |led<6>         |   31.746|
+sw<1>          |led<0>         |   31.609|
+sw<1>          |led<1>         |   31.711|
+sw<1>          |led<2>         |   31.654|
+sw<1>          |led<3>         |   31.178|
+sw<1>          |led<4>         |   31.418|
+sw<1>          |led<5>         |   31.418|
+sw<1>          |led<6>         |   31.134|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Oct 21 19:18:35 2009 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 88 MB
+
+
+

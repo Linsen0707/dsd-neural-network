@@ -1,0 +1,6 @@
+vhdl work "Sigmoid.vhd"
+vhdl work "Neuron.vhd"
+vhdl work "Connection.vhd"
+vhdl work "Network.vhd"
+vhdl work "Input.vhd"
+vhdl work "DUT.vhd"

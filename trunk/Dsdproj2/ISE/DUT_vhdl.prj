@@ -1,0 +1,6 @@
+vhdl work "\\blinky\students_data\sxs5464\Desktop\dsdproj\ISE\Sigmoid.vhd"
+vhdl work "\\blinky\students_data\sxs5464\Desktop\dsdproj\ISE\Neuron.vhd"
+vhdl work "\\blinky\students_data\sxs5464\Desktop\dsdproj\ISE\Connection.vhd"
+vhdl work "\\blinky\students_data\sxs5464\Desktop\dsdproj\ISE\Network.vhd"
+vhdl work "\\blinky\students_data\sxs5464\Desktop\dsdproj\ISE\Input.vhd"
+vhdl work "\\blinky\students_data\sxs5464\Desktop\dsdproj\ISE\DUT.vhd"

@@ -1,0 +1,4 @@
+vhdl work "../../Dsdnn/Sigmoid.vhd"
+vhdl work "../../Dsdnn/Neuron.vhd"
+vhdl work "../../Dsdnn/Connection.vhd"
+vhdl work "../../Dsdnn/Network.vhd"
