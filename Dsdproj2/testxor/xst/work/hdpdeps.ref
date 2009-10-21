@@ -1,0 +1,8 @@
+V3 3
+FL //blinky/students_data/sxs5464/Desktop/dsdproj/testxor/test.vhd 2009/10/21.18:23:11 J.36
+EN work/test 0 FL //blinky/students_data/sxs5464/Desktop/dsdproj/testxor/test.vhd \
+      PB ieee/std_logic_1164 1177545575 PB ieee/std_logic_arith 1177545576 \
+      PB ieee/STD_LOGIC_UNSIGNED 1177545583
+AR work/test/Behavioral 0 \
+      FL //blinky/students_data/sxs5464/Desktop/dsdproj/testxor/test.vhd \
+      EN work/test 0

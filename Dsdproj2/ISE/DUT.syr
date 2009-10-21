@@ -1,0 +1,436 @@
+Release 9.2i - xst J.36
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.44 s | Elapsed : 0.00 / 1.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.44 s | Elapsed : 0.00 / 1.00 s
+ 
+--> Reading design: DUT.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "DUT.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "DUT"
+Output Format                      : NGC
+Target Device                      : xc3s100e-5-tq144
+
+---- Source Options
+Top Module Name                    : DUT
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : DUT.lso
+Keep Hierarchy                     : NO
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3607 - Unit work/Network is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Network.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Network.vhd".
+WARNING:HDLParsers:3607 - Unit work/Network/Behavioral is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Network.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Network.vhd".
+WARNING:HDLParsers:3607 - Unit work/Connection is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Connection.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Connection.vhd".
+WARNING:HDLParsers:3607 - Unit work/Connection/Behavioral is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Connection.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Connection.vhd".
+WARNING:HDLParsers:3607 - Unit work/Neuron is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Neuron.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Neuron.vhd".
+WARNING:HDLParsers:3607 - Unit work/Neuron/Mixed is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Neuron.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Neuron.vhd".
+WARNING:HDLParsers:3607 - Unit work/Sigmoid is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Sigmoid.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Sigmoid.vhd".
+WARNING:HDLParsers:3607 - Unit work/Sigmoid/Behavioral is now defined in a different file.  It was defined in "//blinky/students_data/sxs5464/Desktop/Dsdnn/Sigmoid.vhd", and is now defined in "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Sigmoid.vhd".
+Compiling vhdl file "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Sigmoid.vhd" in Library work.
+Architecture behavioral of Entity sigmoid is up to date.
+Compiling vhdl file "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Connection.vhd" in Library work.
+Architecture behavioral of Entity connection is up to date.
+Compiling vhdl file "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Neuron.vhd" in Library work.
+Architecture mixed of Entity neuron is up to date.
+Compiling vhdl file "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Input.vhd" in Library work.
+Architecture behavioral of Entity input is up to date.
+Compiling vhdl file "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Network.vhd" in Library work.
+Architecture behavioral of Entity network is up to date.
+Compiling vhdl file "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/DUT.vhd" in Library work.
+Architecture behavioral of Entity dut is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <DUT> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Input> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Network> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Connection> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Neuron> in library <work> (architecture <mixed>).
+
+Analyzing hierarchy for entity <Sigmoid> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <DUT> in library <work> (Architecture <behavioral>).
+Entity <DUT> analyzed. Unit <DUT> generated.
+
+Analyzing Entity <Input> in library <work> (Architecture <behavioral>).
+Entity <Input> analyzed. Unit <Input> generated.
+
+Analyzing Entity <Network> in library <work> (Architecture <behavioral>).
+Entity <Network> analyzed. Unit <Network> generated.
+
+Analyzing Entity <Connection> in library <work> (Architecture <behavioral>).
+Entity <Connection> analyzed. Unit <Connection> generated.
+
+Analyzing Entity <Neuron> in library <work> (Architecture <mixed>).
+Entity <Neuron> analyzed. Unit <Neuron> generated.
+
+Analyzing Entity <Sigmoid> in library <work> (Architecture <behavioral>).
+Entity <Sigmoid> analyzed. Unit <Sigmoid> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Input>.
+    Related source file is "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Input.vhd".
+Unit <Input> synthesized.
+
+
+Synthesizing Unit <Connection>.
+    Related source file is "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Connection.vhd".
+WARNING:Xst:646 - Signal <inter<31:24>> is assigned but never used.
+WARNING:Xst:646 - Signal <inter<7:0>> is assigned but never used.
+    Found 16x16-bit multiplier for signal <inter>.
+    Summary:
+	inferred   1 Multiplier(s).
+Unit <Connection> synthesized.
+
+
+Synthesizing Unit <Sigmoid>.
+    Related source file is "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Sigmoid.vhd".
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0000> created at line 52.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0001> created at line 55.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0002> created at line 58.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0003> created at line 61.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0004> created at line 64.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0005> created at line 67.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0006> created at line 70.
+    Found 16-bit comparator greatequal for signal <Y$cmp_ge0007> created at line 73.
+    Summary:
+	inferred   8 Comparator(s).
+Unit <Sigmoid> synthesized.
+
+
+Synthesizing Unit <Neuron>.
+    Related source file is "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Neuron.vhd".
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+    Found 16-bit adder for signal <sum>.
+    Found 16-bit adder for signal <sum$addsub0000> created at line 53.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+Unit <Neuron> synthesized.
+
+
+Synthesizing Unit <Network>.
+    Related source file is "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/Network.vhd".
+Unit <Network> synthesized.
+
+
+Synthesizing Unit <DUT>.
+    Related source file is "//blinky/students_data/sxs5464/Desktop/dsdproj/ISE/DUT.vhd".
+Unit <DUT> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 9
+ 16x16-bit multiplier                                  : 9
+# Adders/Subtractors                                   : 8
+ 16-bit adder                                          : 8
+# Comparators                                          : 32
+ 16-bit comparator greatequal                          : 32
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Loading device for application Rf_Device from file '3s100e.nph' in environment C:\Xilinx92i.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 9
+ 16x16-bit multiplier                                  : 9
+# Adders/Subtractors                                   : 8
+ 16-bit adder                                          : 8
+# Comparators                                          : 32
+ 16-bit comparator greatequal                          : 32
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+no possible choice.
+no possible choice.
+no possible choice.
+no possible choice.
+no possible choice.
+
+Optimizing unit <DUT> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block DUT, actual ratio is 15.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                          Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : DUT.ngr
+Top Level Output File Name         : DUT
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 10
+
+Cell Usage :
+# BELS                             : 535
+#      GND                         : 1
+#      LUT1                        : 48
+#      LUT2                        : 99
+#      LUT3                        : 23
+#      LUT4                        : 49
+#      MUXCY                       : 190
+#      MUXF5                       : 11
+#      VCC                         : 1
+#      XORCY                       : 113
+# IO Buffers                       : 10
+#      IBUF                        : 2
+#      OBUF                        : 8
+# MULTs                            : 4
+#      MULT18X18SIO                : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100etq144-5 
+
+ Number of Slices:                     132  out of    960    13%  
+ Number of 4 input LUTs:               219  out of   1920    11%  
+ Number of IOs:                         10
+ Number of bonded IOBs:                 10  out of    108     9%  
+ Number of MULT18X18SIOs:                4  out of      4   100%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 29.217ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 7531917642 / 7
+-------------------------------------------------------------------------
+Delay:               29.217ns (Levels of Logic = 49)
+  Source:            sw<0> (PAD)
+  Destination:       led<5> (PAD)
+
+  Data Path: sw<0> to led<5>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            32   1.106   1.225  sw_0_IBUF (net/wij00/Mmult_inter_Madd_53)
+     LUT1:I0->O            1   0.612   0.000  net/wij00/Mmult_inter_Madd2_cy<3>_rt (net/wij00/Mmult_inter_Madd2_cy<3>_rt)
+     MUXCY:S->O            2   0.404   0.000  net/wij00/Mmult_inter_Madd2_cy<3> (net/wij00/Mmult_inter_Madd2_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd2_cy<4> (net/wij00/Mmult_inter_Madd2_cy<4>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd2_cy<5> (net/wij00/Mmult_inter_Madd2_cy<5>)
+     XORCY:CI->O           2   0.699   0.532  net/wij00/Mmult_inter_Madd2_xor<6> (net/wij00/Mmult_inter_Madd_92)
+     LUT2:I0->O            1   0.612   0.000  net/wij00/Mmult_inter_Madd3_lut<6> (N45)
+     MUXCY:S->O            1   0.404   0.000  net/wij00/Mmult_inter_Madd3_cy<6> (net/wij00/Mmult_inter_Madd3_cy<6>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd3_cy<7> (net/wij00/Mmult_inter_Madd3_cy<7>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd3_cy<8> (net/wij00/Mmult_inter_Madd3_cy<8>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd3_cy<9> (net/wij00/Mmult_inter_Madd3_cy<9>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd3_cy<10> (net/wij00/Mmult_inter_Madd3_cy<10>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd3_cy<11> (net/wij00/Mmult_inter_Madd3_cy<11>)
+     XORCY:CI->O           3   0.699   0.603  net/wij00/Mmult_inter_Madd3_xor<12> (net/wij00/Mmult_inter_Madd_153)
+     LUT1:I0->O            1   0.612   0.000  net/wij00/Mmult_inter_Madd4_cy<15>_rt (net/wij00/Mmult_inter_Madd4_cy<15>_rt)
+     MUXCY:S->O            1   0.404   0.000  net/wij00/Mmult_inter_Madd4_cy<15> (net/wij00/Mmult_inter_Madd4_cy<15>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd4_cy<16> (net/wij00/Mmult_inter_Madd4_cy<16>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd4_cy<17> (net/wij00/Mmult_inter_Madd4_cy<17>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd4_cy<18> (net/wij00/Mmult_inter_Madd4_cy<18>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd4_cy<19> (net/wij00/Mmult_inter_Madd4_cy<19>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd4_cy<20> (net/wij00/Mmult_inter_Madd4_cy<20>)
+     MUXCY:CI->O           1   0.052   0.000  net/wij00/Mmult_inter_Madd4_cy<21> (net/wij00/Mmult_inter_Madd4_cy<21>)
+     XORCY:CI->O           1   0.699   0.509  net/wij00/Mmult_inter_Madd4_xor<22> (net/a<0><14>)
+     LUT1:I0->O            1   0.612   0.000  net/j1/Madd_sum_Madd_cy<14>_rt (net/j1/Madd_sum_Madd_cy<14>_rt)
+     MUXCY:S->O            0   0.404   0.000  net/j1/Madd_sum_Madd_cy<14> (net/j1/Madd_sum_Madd_cy<14>)
+     XORCY:CI->O           8   0.699   0.795  net/j1/Madd_sum_Madd_xor<15> (net/j1/sum<15>)
+     LUT4:I0->O            1   0.612   0.000  net/j1/sigmoider/Y<0>2_G (N306)
+     MUXF5:I1->O           6   0.278   0.721  net/j1/sigmoider/Y<0>2 (N451)
+     LUT4:I0->O            1   0.612   0.000  net/j1/sigmoider/Y<5>_G (N308)
+     MUXF5:I1->O           1   0.278   0.357  net/j1/sigmoider/Y<5> (net/j<0><5>)
+     MULT18X18SIO:A5->P10    2   4.091   0.410  net/wjk0/Mmult_inter (net/k<0><2>)
+     LUT3:I2->O            1   0.612   0.509  net/final/Madd_sumC11 (net/final/Madd_sumC1)
+     LUT4:I0->O            1   0.612   0.000  net/final/Madd_sum_Madd_lut<3> (N28)
+     MUXCY:S->O            1   0.404   0.000  net/final/Madd_sum_Madd_cy<3> (net/final/Madd_sum_Madd_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<4> (net/final/Madd_sum_Madd_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<5> (net/final/Madd_sum_Madd_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<6> (net/final/Madd_sum_Madd_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<7> (net/final/Madd_sum_Madd_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<8> (net/final/Madd_sum_Madd_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<9> (net/final/Madd_sum_Madd_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<10> (net/final/Madd_sum_Madd_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<11> (net/final/Madd_sum_Madd_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<12> (net/final/Madd_sum_Madd_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  net/final/Madd_sum_Madd_cy<13> (net/final/Madd_sum_Madd_cy<13>)
+     XORCY:CI->O           4   0.699   0.529  net/final/Madd_sum_Madd_xor<14> (net/final/sum<14>)
+     LUT4:I2->O            4   0.612   0.651  led<0>21 (led<0>_bdd1)
+     LUT4:I0->O            1   0.612   0.000  led<5>_G (N310)
+     MUXF5:I1->O           1   0.278   0.357  led<5> (led_5_OBUF)
+     OBUF:I->O                 3.169          led_5_OBUF (led<5>)
+    ----------------------------------------
+    Total                     29.217ns (22.019ns logic, 7.198ns route)
+                                       (75.4% logic, 24.6% route)
+
+=========================================================================
+CPU : 20.20 / 20.69 s | Elapsed : 20.00 / 21.00 s
+ 
+--> 
+
+Total memory usage is 145408 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
