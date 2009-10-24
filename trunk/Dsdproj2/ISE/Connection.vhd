@@ -19,8 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_SIGNED.ALL;
 
 ---- Uncomment the following library declaration if instantiating
 ---- any Xilinx primitives in this code.
@@ -28,14 +28,14 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity Connection is
-    Port ( i : in  STD_LOGIC_VECTOR (7 downto 0);
-           o : out  STD_LOGIC_VECTOR (15 downto 0);
-           w : in STD_LOGIC_VECTOR (15 downto 0));
+    Port ( i : in unsigned(7 downto 0);
+           o : out signed(15 downto 0);
+           w : in signed(15 downto 0));
 end Connection;
 
 architecture Behavioral of Connection is
-signal inter : STD_LOGIC_VECTOR(31 downto 0);
+signal inter : signed(31 downto 0);
 begin
-	inter <= (SXT(i,o'LENGTH) * w);
+	inter <= (signed("00000000" & i) * w);
 	o <= inter(23 downto 8);
 end Behavioral;
