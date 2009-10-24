@@ -19,8 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 ---- Uncomment the following library declaration if instantiating
 ---- any Xilinx primitives in this code.
@@ -28,59 +27,65 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity Sigmoid is
-    Port ( X : in  STD_LOGIC_VECTOR(15 downto 0);
-           Y : out  STD_LOGIC_VECTOR(7 downto 0));
+    Port ( X : in  signed(15 downto 0);
+           Y : out  unsigned(7 downto 0));
 end Sigmoid;
 
 architecture Behavioral of Sigmoid is
-	type myArray is array(8 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
+	type myArray is array(8 downto 0) of unsigned(7 downto 0);
 	signal dat : myArray;
+	signal w : signed(7 downto 0);
 begin
-
+   
 	dat(0)<="00000000";	--F[-6]=0
-	dat(1)<="00000010";  --F[-4]=.02
-	dat(2)<="00001111";	--F[-2]=.12
-	dat(3)<="00100010";	--F[-1]=.27
-	dat(4)<="01000000";	--F[0]=.5
-	dat(5)<="01011101";	--F[1]=.73		
-	dat(6)<="01110000";	--F[2]=.88
-	dat(7)<="01111101";	--F[4]=.98
-	dat(8)<="01111111";	--F[6]=1
+	dat(1)<="00000100";  --F[-4]=.02
+	dat(2)<="00011110";	--F[-2]=.12
+	dat(3)<="01000100";	--F[-1]=.27
+	dat(4)<="10000000";	--F[0]=.5
+	dat(5)<="10111010";	--F[1]=.73		
+	dat(6)<="11100000";	--F[2]=.88
+	dat(7)<="11111011";	--F[4]=.98
+	dat(8)<="11111111";	--F[6]=1
 
 	process (X)
 	begin
-		if X >= "1111111100000000" then --x< -1
+	   w <= signed(X(15 downto 8));
+	   	    
+		if w < -6 then
+			Y<=dat(0);
+	   end if;
+		
+		if w < -4 and w > -6 then
+			Y<=dat(1);
+	   end if;
+		
+		if w < -2 and w > -4 then
+			Y<=dat(2);
+	   end if;
+		
+		if w < -2 and w > -1 then
 			Y<=dat(3);
-		else
-			if X >= "1111111000000000" then	--x< -2
-				Y<=dat(2);
-			else
-				if X >= "1111110000000000" then	--x < -4
-					Y<=dat(1);
-				else
-					if X >= "1111101000000000" then	--x < -6
-						Y<=dat(0);
-					else
-						if X >= "0000011000000000" then --x>6
-							Y<=dat(8);
-						else
-							if X >= "0000010000000000" then --x<4
-								Y<=dat(7);
-							else
-								if X >= "0000001000000000" then --x>2
-									Y<=dat(6);
-								else
-									if X >= "0000000100000000" then --x>=1
-										Y<=dat(5);
-									else                   --x<0
-										Y<=dat(4);
-									end if;
-								end if;
-							end if;
-						end if;
-					end if;
-				end if;
-			end if;
-		end if;
+	   end if;
+		
+		if w < 1 and w > -1 then
+			Y<=dat(4);
+	   end if;
+
+		if w < 2 and w > 1 then
+			Y<=dat(5);
+	   end if;
+	   
+  		if w < 4 and w > 2 then
+			Y<=dat(6);
+	   end if;
+	   	
+	   if w < 6 and w > 4 then
+			Y<=dat(7);
+	   end if;
+	   
+		if w > 6 then
+			Y<=dat(8);
+	   end if;	  
+	    
 	end process;
 end Behavioral;

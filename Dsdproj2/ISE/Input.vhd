@@ -29,7 +29,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity Input is
     Port ( Input : in  STD_LOGIC;
-           Output : out  STD_LOGIC_VECTOR (7 downto 0));
+           Output : out  unsigned (7 downto 0));
 end Input;
 
 architecture Behavioral of Input is
@@ -39,7 +39,7 @@ begin
 	begin
 		--convert to 8 bit signed
 		if Input = '1' then
-			Output<="01111111";	--set output to 1
+			Output<="11111111";	--set output to 1
 		else
 			Output<="00000000";	--set output to 0
 		end if;

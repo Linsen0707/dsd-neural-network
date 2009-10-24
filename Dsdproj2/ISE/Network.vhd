@@ -19,8 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 ---- Uncomment the following library declaration if instantiating
 ---- any Xilinx primitives in this code.
@@ -28,28 +27,28 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity Network is
-    Port (	testa : in  STD_LOGIC_VECTOR (7 downto 0);
-				testb : in  STD_LOGIC_VECTOR (7 downto 0);
-				classification : out  STD_LOGIC_VECTOR (7 downto 0));
+    Port (	testa : in  unsigned (7 downto 0);
+				testb : in  unsigned (7 downto 0);
+				classification : out  unsigned (7 downto 0));
 end Network;
 
 architecture Behavioral of Network is
 
 	component Neuron
-		Port (a : in STD_LOGIC_VECTOR(15 downto 0);
-				b : in STD_LOGIC_VECTOR(15 downto 0);
-				c : in STD_LOGIC_VECTOR(15 downto 0);
-				outsignal : out STD_LOGIC_VECTOR(7 downto 0) );
+		Port (a : in signed(15 downto 0);
+				b : in signed(15 downto 0);
+				c : in signed(15 downto 0);
+				outsignal : out unsigned(7 downto 0) );
 	end component;
 	
 	component Connection
-		Port (i : in  STD_LOGIC_VECTOR (7 downto 0);
-				o : out  STD_LOGIC_VECTOR (15 downto 0);
-				w : in STD_LOGIC_VECTOR (15 downto 0));
+		Port (i : in  unsigned (7 downto 0);
+				o : out  signed (15 downto 0);
+				w : in signed (15 downto 0));
 	end component;
 	
-	type prelevel is array(2 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
-	type postlevel is array(2 downto 0) of STD_LOGIC_VECTOR(15 downto 0);
+	type prelevel is array(2 downto 0) of unsigned (7 downto 0);
+	type postlevel is array(2 downto 0) of signed (15 downto 0);
 	signal a : postlevel;
 	signal b : postlevel;
 	signal j : prelevel;
