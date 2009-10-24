@@ -57,23 +57,23 @@ architecture Behavioral of Network is
 	
 begin
 	wij00: Connection
-		port map(testa, a(0), "1111110010101010");
+		port map(testa, a(0), "1111110110001101");
 		
 	wij01: Connection
-		port map(testa, a(1), "0000010001101100");
+		port map(testa, a(1), "0000010011100000");
 	
 	wij02: Connection
-		port map(testa, a(2), "0000011001101100");
+		port map(testa, a(2), "0000010011001000");
 		  
 		    
 	wij10: Connection
-		port map(testb, b(0), "0000010011001110");
+		port map(testb, b(0), "0000010011010111");
 		
 	wij11: Connection
-		port map(testb, b(1), "0000001100101101");
+		port map(testb, b(1), "0000010011001111");
 	
 	wij12: Connection
-		port map(testb, b(2), "1111110000001001");
+		port map(testb, b(2), "1111110110010101");
 
 	j1: Neuron
 		port map(a(0), b(0), "0000000000000000", j(0));
@@ -87,13 +87,13 @@ begin
 		    
 		
 	wjk0: Connection
-		port map(j(0), k(0), "1111101010101010");
+		port map(j(0), k(0), "1111100111100000");
 	
 	wjk1: Connection
-		port map(j(1), k(1), "0000011111000100");
+		port map(j(1), k(1), "0000100011001001");
 		
 	wjk2: Connection
-		port map(j(2), k(2), "1111101011000101");
+		port map(j(2), k(2), "1111100111011010");
 		
 	final: Neuron
 		port map(k(0), k(1), k(2), classification);
