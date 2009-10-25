@@ -36,6 +36,7 @@ architecture Behavioral of Sigmoid is
 	signal dat : myArray;
 	signal compare : signed(7 downto 0);
 	signal w : signed(7 downto 0);
+	signal inval : integer;
 begin
 	dat(0)<="00000000";	--F[-6]=0
 	dat(1)<="00000100";  --F[-4]=.02
@@ -47,53 +48,46 @@ begin
 	dat(7)<="11111011";	--F[4]=.98
 	dat(8)<="11111111";	--F[6]=1
 
-	process (X)
-	begin
-	   w <= X(15 downto 8);
+
+   w <= X(15 downto 8);
+   inval<=to_integer(w);
 	   	    
+	process (w)
+	begin
 		if w <= to_signed(-6,8) then
-		  compare <= to_signed(-6,8);
-			Y<=dat(0);
+		   Y<=dat(0);
 	   end if;
 		
 		if w <= to_signed(-4,8) and w > to_signed(-6,8) then
 			Y<=dat(1);
-      compare <= to_signed(-4,8);
 	   end if;
 		
 		if w <= to_signed(-2,8) and w > to_signed(-4,8) then
 			Y<=dat(2);
-			compare <= to_signed(-2,8);
 	   end if;
 		
 		if w <= to_signed(-1,8) and w > to_signed(-2,8) then
 			Y<=dat(3);
-			compare <= to_signed(-1,8);
 	   end if;
 		
-		if w <= to_signed(1,8) and w > to_signed(-1,8) then
+		if w < to_signed(1,8) and w >= to_signed(-1,8) then
 			Y<=dat(4);
-			compare <= to_signed(1,8);
 	   end if;
 
-		if w <= to_signed(2,8) and w > to_signed(1,8) then
+		if w < to_signed(2,8) and w >= to_signed(1,8) then
 			Y<=dat(5);
-			compare <= to_signed(2,8);
 	   end if;
 	   
-  		if w <= to_signed(4,8) and w > to_signed(2,8) then
+  		if w < to_signed(4,8) and w >= to_signed(2,8) then
 			Y<=dat(6);
-			compare <= to_signed(4,8);
 	   end if;
 	   	
-	   if w < to_signed(6,8) and w > to_signed(4,8) then
+	   if w < to_signed(6,8) and w >= to_signed(4,8) then
 			Y<=dat(7);
-			compare <= to_signed(6,8);
 	   end if;
 	   
 		if w >= to_signed(6,8) then
 			Y<=dat(8);
-			compare <= to_signed(6,8);
 	   end if;	  
 	    
 	end process;
