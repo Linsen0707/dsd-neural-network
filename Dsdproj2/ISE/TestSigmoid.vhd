@@ -19,8 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity TestSigmoid is
 end TestSigmoid;
@@ -28,14 +27,16 @@ end TestSigmoid;
 architecture Behavioral of TestSigmoid is
     
     component Sigmoid is
-       Port ( X : in  STD_LOGIC_VECTOR(15 downto 0);
-           Y : out  STD_LOGIC_VECTOR(7 downto 0));
+           Port ( X : in  signed(15 downto 0);
+               Y : out  unsigned(7 downto 0));
     end component;
     
-    signal inputs : STD_LOGIC_VECTOR(15 downto 0):="0000000000000001";
-    signal output : STD_LOGIC_VECTOR(7 downto 0);
+    signal inputs : signed(15 downto 0):=to_signed(0,16);
+    signal output : unsigned(7 downto 0);
+    signal value : Integer:=0;
     signal error : STD_LOGIC := '0';
-    signal delay : Time := 10ns;
+    signal delay : Time := 10 ns;
+    signal val : Integer;
     begin
         
     --Unit Under Test
@@ -46,15 +47,10 @@ architecture Behavioral of TestSigmoid is
         begin                 
     --testing procedure
            --loop through all input
-           inputs<="0000000000000000";
-           wait for delay;
-           if output < "01000000" then
-           else
-               error<= '1';
-           end if;
-           for i in 65535 downto 0 loop
-              inputs<=inputs + "0000000000000001";
-              wait for delay;
+           for i in -7 to 7 loop
+              val<=i;
+              inputs<=to_signed(i,8)&"00000000";
+              wait for delay; 
            end loop;
        end process;
 end Behavioral;
