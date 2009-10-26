@@ -33,10 +33,15 @@ entity Sigmoid is
 end Sigmoid;
 
 architecture Behavioral of Sigmoid is
-	variable pow : Integer:=0;
-	variable previous : Boolean:=False;
-	variable converge : unsigned(7 downto 0):="
+
 begin
-	
-	
+  process (X)
+  	 variable pow : Integer:=0;
+    variable previous,result : signed(15 downto 0);
+    variable converge : unsigned(7 downto 0):="00000001";
+	begin
+	  while abs((previous-result)/result) < converge loop
+	    
+	  end loop;
+	end process;
 end Behavioral;
