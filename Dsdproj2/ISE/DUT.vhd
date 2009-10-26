@@ -36,18 +36,18 @@ architecture Behavioral of DUT is
 
 	component Input is
 		Port ( Input : in  STD_LOGIC;
-           Output : out  STD_LOGIC_VECTOR (7 downto 0));
+           Output : out  unsigned (7 downto 0));
 	end component;
 
 	component Network is
-		Port ( testa : in  STD_LOGIC_VECTOR (7 downto 0);
-				testb : in  STD_LOGIC_VECTOR (7 downto 0);
-				classification : out  STD_LOGIC_VECTOR (7 downto 0));
+		Port ( testa : in  unsigned (7 downto 0);
+				testb : in  unsigned (7 downto 0);
+				classification : out  unsigned (7 downto 0));
 	end component;
 
-	type conlevel is array(1 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
+	type conlevel is array(1 downto 0) of unsigned(7 downto 0);
 	signal inputs : conlevel;
-	signal outputs : STD_LOGIC_VECTOR(7 downto 0);
+	signal outputs : unsigned(7 downto 0);
 	
 begin
 
