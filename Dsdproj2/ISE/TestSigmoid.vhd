@@ -27,12 +27,17 @@ end TestSigmoid;
 architecture Behavioral of TestSigmoid is
     
     component Sigmoid is
-           Port ( X : in  signed(15 downto 0);
-               Y : out  unsigned(7 downto 0));
+      Port ( X : in  signed(15 downto 0);
+             Y : out  unsigned(7 downto 0));
+    end component;
+    
+    component Sigmoid2 is
+      Port ( X : in  signed(15 downto 0);
+             Y : out  unsigned(7 downto 0):="00000000");
     end component;
     
     signal inputs : signed(15 downto 0):=to_signed(0,16);
-    signal output : unsigned(7 downto 0);
+    signal output : unsigned(7 downto 0):="00000000";
     signal value : Integer:=0;
     signal error : STD_LOGIC := '0';
     signal delay : Time := 10 ns;
@@ -40,7 +45,7 @@ architecture Behavioral of TestSigmoid is
     begin
         
     --Unit Under Test
-        UUT: Sigmoid
+        UUT: Sigmoid2
            port map(inputs,output);
          
         process
