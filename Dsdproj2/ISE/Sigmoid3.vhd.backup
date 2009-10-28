@@ -1,0 +1,99 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    18:58:47 10/28/2009 
+-- Design Name: 
+-- Module Name:    Sigmoid3 - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+library floatfixlib;
+use floatfixlib.float_pkg.ALL;
+use floatfixlib.fixed_pkg.ALL;
+use floatfixlib.math_utility_pkg.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity Sigmoid3 is
+    Port ( X : in  signed(15 downto 0);
+           Y : out  unsigned(7 downto 0):="00000000");
+end Sigmoid3;
+
+architecture Behavioral of Sigmoid3 is
+  signal output : unsigned(7 downto 0):="00000000";
+  signal input : signed(15 downto 0);
+    signal result,prev,exp,converge,div,ratio : float32:=to_float(0);
+    signal pow : Integer:=0;
+    signal val,result32 : float32:=to_float(0);
+    signal done : boolean:=true;
+begin
+  input <= X after 0 ns;
+  --Y<= output;
+  process
+    
+     begin
+       result <= to_float(2);
+       prev <= to_float(1);
+       converge <= result / prev;
+       pow <= to_integer(converge);
+       wait for 10 ns;
+       --wait for 50 ns;
+--       --setup values
+--       result <= to_float(0);
+--       converge <= to_float(0.001);
+--       
+----       val <= to_float(X);
+--       val <= to_float(1);
+--       prev <= to_float(0);
+--       pow <= 0;
+--       --begin loop
+--       wait for 50 ns;
+--       while done loop
+--         div <= to_float(1);
+--         
+--         if pow = 0 then
+--           exp <= to_float(1);
+--         else
+--           exp <= val;
+--         end if;
+--       
+--         for i in 0 to pow-1 loop
+--           exp <= exp * val;
+--         end loop;
+--         
+--         for i in pow downto 0 loop
+--           div <= div * i;
+--         end loop;
+--          
+--         result <= result + (exp/div);
+--       
+--         prev <= result;
+--         pow <= pow + 1;
+--         ratio <= abs((result-prev)/result);
+--         input <= to_signed(ratio);
+--         if ratio < converge then
+--           done <= false;
+--         end if;
+--         wait for 10 ns;
+--      end loop;
+--       result32 <= result;
+--       output <= to_unsigned(result,8);
+  end process;
+end Behavioral;
