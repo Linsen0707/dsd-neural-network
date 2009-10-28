@@ -37,19 +37,20 @@ entity Connection is
 end Connection;
 
 architecture Behavioral of Connection is
-signal inter : signed(31 downto 0);
+
 signal w : signed(15 downto 0) := iw;
 begin
   process(iv, ie)
+    variable inter : signed(31 downto 0);
   begin
     case learnmode is
     when true => 
-      inter <= (signed("00000000" & iv) * w);
+      inter := (signed("00000000" & iv) * w);
       ov <= inter(23 downto 8);
     when false =>
-        inter <= ie * w;
+        inter := ie * w;
         oe <= inter(23 downto 0);
-        inter <= (ie * signed("00000000" & iv));
+        inter := (ie * signed("00000000" & iv));
         w <= w + inter(28 downto 13); -- 2^-5 learning rate. Adjust window here.
     end case;
   end process;
