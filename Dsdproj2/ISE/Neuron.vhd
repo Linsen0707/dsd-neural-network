@@ -28,30 +28,45 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity Neuron is
-	Port (a : in signed(15 downto 0);
-			b : in signed(15 downto 0);
-			c : in signed(15 downto 0);
-			outsignal : out unsigned(7 downto 0) );
+	Port (learnmode : in boolean;
+       ia : in signed(15 downto 0);
+    	  ib : in signed(15 downto 0);
+    		 ic : in signed(15 downto 0);
+  		   ea : in signed(15 downto 0);
+       eb : in signed(15 downto 0);
+       ec : in signed(15 downto 0);
+       outerror : out signed(15 downto 0);  
+			 outvalue : out unsigned(7 downto 0) );
 end Neuron;
 
 
 
 architecture Mixed of Neuron is
     
-	signal sum : signed (15 downto 0):="0000000000000000";
+
+  signal sum : signed (15 downto 0):="0000000000000000";
+	signal errsum : signed (15 downto 0):="0000000000000000";
 	
-	component Sigmoid is
+  component Sigmoid is
     Port ( X : in  signed(15 downto 0);
            Y : out  unsigned(7 downto 0));
    end component;
+	component Gaussian is
+    Port ( X : in  signed(15 downto 0);
+           Y : out  signed(15 downto 0));
+   end component;
+
 	
 begin
 
-   sigmoider: Sigmoid
-      port map(sum, outsignal);
+  sigmoider: Sigmoid
+    port map(sum, outvalue);
 
-	sum <= a + b + c;
-	
+  gaussianer: Gaussian
+    port map(errsum, outerror);
+    
+  sum <= ia + ib + ic;
+	errsum <= ea + eb + ec;
 
 end Mixed;
 

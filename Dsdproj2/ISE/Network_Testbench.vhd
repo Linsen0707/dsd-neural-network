@@ -44,16 +44,18 @@ architecture test of Network_Testbench is
    end component;
 
    component Network is 
-       Port (	testa : in  unsigned (7 downto 0);
-				   testb : in  unsigned (7 downto 0);
-				   classification : out  unsigned (7 downto 0));
+    Port (	testa : in  unsigned (7 downto 0);
+				testb : in  unsigned (7 downto 0);
+				classification : out  unsigned (7 downto 0);
+				lasterror : in signed(15 downto 0);
+				learnmode : in boolean);
    end component;
    
    signal a,b,c : unsigned (7 downto 0);
    
 begin
     dut:Network
-    port map(a,b,c);
+    port map(a,b,c,"0000000000000000", false);
     
     gen:Generator
     port map(a, b);
