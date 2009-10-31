@@ -33,91 +33,77 @@ use floatfixlib.math_utility_pkg.ALL;
 
 entity Sigmoid3 is
     Port ( X : in  signed(15 downto 0);
-           Y : out  unsigned(7 downto 0):="00000000");
+           Y : out  unsigned(7 downto 0));
 end Sigmoid3;
 
 architecture Behavioral of Sigmoid3 is
-  signal output : unsigned(7 downto 0):="00000000";
-    
-  signal resultS,prevS,expS,divS : float32:=to_float(0);
-  signal convergeS : float32:=to_float(0.1);
-  signal powS : Integer:=0;
-  signal valS,ratioS : float32:=to_float(1);
-  signal doneS : boolean:=true;
-  signal counterS : Integer:=0;
+  signal resultS : float32;
+  signal valS : float32;
+  signal counterS : Integer;
       
 begin
-  process --(X)
-      
-          
-      variable result,prev,exp,div : float32:=to_float(0);
-      variable converge : float32:=to_float(0.1);
+  process (X)
+      variable result,exp,div : float32:=to_float(0);
       variable pow : Integer:=0;
-      variable val,ratio : float32:=to_float(1);
+      variable val : float32:=to_float(0.997);
       variable done : boolean:=true;
-      variable counter : Integer:=0;
      begin
        
        val := to_float(X);
-       counter := 0;
-       while done loop
+       val := val / 256;
+              
+       pow := 0;
+       result := to_float(0);
+       done := true;
+
+       if (val > 2) then
+          result := to_float(1);
+       elsif (val < -2) then 
+          result := to_float(0);
+       else
+       
+         while done loop
          
-         div := to_float(1);
-         wait for 5 ns;
-         if pow = 0 then
-           exp := to_float(1);
-         else
-           exp := val;
-         end if;
-         wait for 10 ns;
-         --calculate top of fraction
-         for i in 0 to pow-1 loop
-           exp := exp * val;
+           div := to_float(1);
+           if pow = 0 then
+             exp := to_float(1);
+           else
+             exp := val;
+           end if;
+
+           --calculate top of fraction
+           for i in 0 to pow-1 loop
+             exp := exp * val;
+           end loop;
+
+
+           --calculate divisor
+           for i in pow downto 1 loop
+             div := div * i;
+           end loop;
+  
+           --sum
+           if (pow mod 2 = 1) then
+             result := result - (exp/div);
+           else 
+             result := result + (exp/div);
+           end if;
+         
+         
+           --increment counter
+           pow := pow + 1;
+           if pow > 10 then 
+             done := false;
+           end if;
+         
          end loop;
-         wait for 15 ns;
-         --calculate divisor
-         for i in pow downto 1 loop
-           div := div * i;
-           wait for 5 ns;
-         end loop;
-         wait for 20 ns;
-         
-         --sum
-         if (pow mod 2 = 1) then
-           result := result - (exp/div);
-         else 
-           result := result + (exp/div);
-         end if;
-         
-         --convergence check
-         ratio := abs((prev-result)/result);
-         if ratio < converge then
-           done := false;
-         end if;
-         
-         --increment counter
-         prev := result;
-         pow := pow + 1;
-         counter := counter + 1;
-         if counter > 10 then 
-           done := false;
-         end if;
-         
-         resultS<=result;
-         prevS<=prev;
-         expS<=exp;
-         divS<=div;
-         convergeS<=converge;
-         powS<=pow;
-         valS<=val;
-         ratioS<=ratio;
-         doneS<=done;
-         counterS<=counter;
-         
-         wait for 50 ns;
-       end loop;
-       result := (1 / (1 + result));
-       output<= to_unsigned(result*256,8);
-       wait for 100000 ns;
-  end process;
+         result := abs(result);
+         result := (1 / (1 + result));
+       end if;
+       y<= to_unsigned(result*256,8);
+       resultS<=result;         
+       valS<=val;
+       counterS<=pow;
+       
+     end process;
 end Behavioral;
