@@ -38,7 +38,6 @@ end Sigmoid3;
 
 architecture Behavioral of Sigmoid3 is
   signal output : unsigned(7 downto 0):="00000000";
-  signal input : signed(15 downto 0):="0000000000000001";
     
   signal resultS,prevS,expS,divS : float32:=to_float(0);
   signal convergeS : float32:=to_float(0.1);
@@ -46,11 +45,8 @@ architecture Behavioral of Sigmoid3 is
   signal valS,ratioS : float32:=to_float(1);
   signal doneS : boolean:=true;
   signal counterS : Integer:=0;
-  
-  signal intVal : Integer:=0;
       
 begin
-  input <= X;
   process --(X)
       
           
@@ -62,14 +58,14 @@ begin
       variable counter : Integer:=0;
      begin
        
-       val := to_float(input);
+       val := to_float(X);
        counter := 0;
        while done loop
          
          div := to_float(1);
          wait for 5 ns;
          if pow = 0 then
-           exp := to_float(1)/256;
+           exp := to_float(1);
          else
            exp := val;
          end if;
@@ -85,8 +81,13 @@ begin
            wait for 5 ns;
          end loop;
          wait for 20 ns;
+         
          --sum
-         result := result + (exp/div);
+         if (pow mod 2 = 1) then
+           result := result - (exp/div);
+         else 
+           result := result + (exp/div);
+         end if;
          
          --convergence check
          ratio := abs((prev-result)/result);
@@ -113,11 +114,10 @@ begin
          doneS<=done;
          counterS<=counter;
          
-         intVal<= to_integer(result*256);
-         
          wait for 50 ns;
        end loop;
-       output<= to_unsigned((result*256),8);
+       result := (1 / (1 + result));
+       output<= to_unsigned(result*256,8);
        wait for 100000 ns;
   end process;
 end Behavioral;
