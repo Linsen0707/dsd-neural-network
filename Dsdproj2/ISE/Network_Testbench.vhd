@@ -51,11 +51,11 @@ architecture test of Network_Testbench is
 				learnmode : in boolean);
    end component;
    
-   signal a,b,c : unsigned (7 downto 0);
+   signal a,b,x : unsigned (7 downto 0);
    
 begin
     dut:Network
-    port map(a,b,c,"0000000000000000", false);
+    port map(a,b,x,"0000000000000000", false);
     
     gen:Generator
     port map(a, b);

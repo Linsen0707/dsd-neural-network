@@ -70,28 +70,28 @@ architecture Behavioral of Network is
 	signal ek : signed(15 downto 0);
 begin
 	wij00: Connection
-	  generic map("1111110110001101")
+	  generic map(iw=>"1111110110001101")
 		port map(learnmode, testa, a(0), ei(0), einputa(0));
 		
 	wij01: Connection
-   	generic map("0000010011100000")
+   	generic map(iw=>"0000010011100000")
 		port map(learnmode, testa, a(1), ei(1), einputa(1));
 	
 	wij02: Connection
-   	generic map("0000010011001000")
+   	generic map(iw=>"0000010011001000")
 		port map(learnmode, testa, a(2), ei(2), einputa(2));
 		  
 		    
 	wij10: Connection
-   	generic map("0000010011010111")
+   	generic map(iw=>"0000010011010111")
 		port map(learnmode, testb, b(0), ei(0), einputb(0));
 		
 	wij11: Connection
-   	generic map("0000010011001111")
+   	generic map(iw=>"0000010011001111")
 		port map(learnmode, testb, b(1), ei(1), einputb(1));
 	
 	wij12: Connection
-   	generic map("1111110110010101")
+   	generic map(iw=>"1111110110010101")
 		port map(learnmode, testb, b(2), ei(2), einputb(2));
 
 	j1: Neuron
@@ -106,15 +106,15 @@ begin
 		    
 		
 	wjk0: Connection
-   	generic map("1111100111100000")
+   	generic map(iw=>"1111100111100000")
 		port map(learnmode, j(0), k(0), ek, ej(0));
 	
 	wjk1: Connection
-   	generic map("0000100011001001")
+   	generic map(iw=>"0000100011001001")
 		port map(learnmode, j(1), k(1), ek, ej(1));
 		
 	wjk2: Connection
-   	generic map("1111100111011010")
+   	generic map(iw=>"1111100111011010")
 		port map(learnmode, j(2), k(2), ek, ej(2));
 		
 	final: Neuron
