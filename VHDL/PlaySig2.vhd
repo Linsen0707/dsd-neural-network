@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use STD.textio.all;
 
 library floatfixlib;
 use floatfixlib.float_pkg.ALL;
@@ -30,6 +31,7 @@ begin
   process (X)
     variable tmp,xin,prev,result,converge,exp,div : float32;
     variable pow : Integer;
+    variable mline : line;
   begin
     --convert x to float
     num <= to_float(X) / to_float(256);
@@ -41,26 +43,37 @@ begin
     pow := 0;
     prev := to_float(0);
     result := to_float(1);
-    div := to_float(1);
+    
     while abs((prev-result)/result) > converge loop
-      
-      
+          div := to_float(1);
+      write(mline,string'("pow = "));
+      write(mline,pow);
+      writeline(output,mline);
       if pow = 0 then
         exp := to_float(1);
       else
         exp := xin;
       end if;
-      
+      write(mline,string'("exp = "));
+      write(mline,to_real(exp));
+      writeline(output,mline);
+      write(mline,string'("xin = "));
+      write(mline,to_real(xin));
+      writeline(output,mline);
       --calculate top of frac
-      for i in 0 to pow-1 loop
+      for i in 0 to pow-2 loop
         exp := exp * xin;
       end loop;
-      
+      write(mline,string'("exp = "));
+      write(mline,to_real(exp));
+      writeline(output,mline);
       --calculate divisor
       for i in pow downto 1 loop
         div := div * i;
       end loop;
-      
+      write(mline,string'("div = "));
+      write(mline,to_real(div));
+      writeline(output,mline);
       --sum
       if pow = 0 then
         result := exp/div;
@@ -69,11 +82,21 @@ begin
         prev := result;
         result := result + exp/div;
       end if;
-      
+      write(mline,string'("result = "));
+      write(mline, to_real(result));
+      writeline(output,mline);
+      write(mline,string'("----------------------------------"));
+      writeline(output,mline);
       pow := pow + 1; 
     end loop;
     val <= 1-(1/(1+result));
-    
+    write(mline,string'("final = "));
+    write(mline,to_real(val));
+    writeline(output,mline);
+    write(mline,string'("----------------------------------"));
+      writeline(output,mline);
+      write(mline,string'("----------------------------------"));
+      writeline(output,mline);
     loop_count <= pow;
   end process;
   Y <= to_unsigned((val*128),8);
