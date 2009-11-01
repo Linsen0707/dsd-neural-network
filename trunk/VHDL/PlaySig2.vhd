@@ -99,5 +99,5 @@ begin
       writeline(output,mline);
     loop_count <= pow;
   end process;
-  Y <= to_unsigned((val*128),8);
+  Y <= (to_unsigned((val*256),8));
 end architecture Behavioral;
