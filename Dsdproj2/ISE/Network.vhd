@@ -49,12 +49,12 @@ architecture Behavioral of Network is
 	end component;
 	
 	component Connection
-    generic ( iw : signed(15 downto 0));
     Port ( learnmode : in boolean;
          iv : in unsigned(7 downto 0);
          ov : out signed(15 downto 0);
          ie : in signed(15 downto 0);
-         oe : out signed(15 downto 0));
+         oe : out signed(15 downto 0); 
+         iw : in signed(15 downto 0));
 	end component;
 	
 	type prelevel is array(2 downto 0) of unsigned (7 downto 0);
@@ -70,52 +70,43 @@ architecture Behavioral of Network is
 	signal ek : signed(15 downto 0);
 begin
 	wij00: Connection
-	  generic map(iw=>"1111110110001101")
-		port map(learnmode, testa, a(0), ei(0), einputa(0));
+		port map(learnmode, testa, a(0), ei(0), einputa(0), iw=>"0000000011010111");
 		
 	wij01: Connection
-   	generic map(iw=>"0000010011100000")
-		port map(learnmode, testa, a(1), ei(1), einputa(1));
+		port map(learnmode, testa, a(1), ei(1), einputa(1), iw=>"0000000001100100");
 	
 	wij02: Connection
-   	generic map(iw=>"0000010011001000")
-		port map(learnmode, testa, a(2), ei(2), einputa(2));
+		port map(learnmode, testa, a(2), ei(2), einputa(2), iw=>"0000000011001000");
 		  
 		    
 	wij10: Connection
-   	generic map(iw=>"0000010011010111")
-		port map(learnmode, testb, b(0), ei(0), einputb(0));
+		port map(learnmode, testb, b(0), ei(0), einputb(0), iw=>"0000000011001100");
 		
 	wij11: Connection
-   	generic map(iw=>"0000010011001111")
-		port map(learnmode, testb, b(1), ei(1), einputb(1));
+		port map(learnmode, testb, b(1), ei(1), einputb(1), iw=>"0000000011101001");
 	
 	wij12: Connection
-   	generic map(iw=>"1111110110010101")
-		port map(learnmode, testb, b(2), ei(2), einputb(2));
+		port map(learnmode, testb, b(2), ei(2), einputb(2), iw=>"0000000000110010");
 
 	j1: Neuron
-		port map(learnmode, a(0), b(0), "0000000000000000", ej(0), "0000000000000000", "0000000000000000", ei(0), j(0));
+		port map(learnmode, a(0), b(0), "0000000100000000", ej(0), "0000000000000000", "0000000000000000", ei(0), j(0));
 		
 	j2: Neuron
-		port map(learnmode, a(1), b(1), "0000000000000000", ej(1), "0000000000000000", "0000000000000000", ei(1), j(1));
+		port map(learnmode, a(1), b(1), "0000000100000000", ej(1), "0000000000000000", "0000000000000000", ei(1), j(1));
 
 	j3: Neuron
-		port map(learnmode, a(2), b(2), "0000000000000000", ej(2), "0000000000000000", "0000000000000000", ei(2), j(2));
+		port map(learnmode, a(2), b(2), "0000000100000000", ej(2), "0000000000000000", "0000000000000000", ei(2), j(2));
 		
 		    
 		
 	wjk0: Connection
-   	generic map(iw=>"1111100111100000")
-		port map(learnmode, j(0), k(0), ek, ej(0));
+		port map(learnmode, j(0), k(0), ek, ej(0), iw=>"0000000001010101");
 	
 	wjk1: Connection
-   	generic map(iw=>"0000100011001001")
-		port map(learnmode, j(1), k(1), ek, ej(1));
+		port map(learnmode, j(1), k(1), ek, ej(1), iw=>"0000000011000100");
 		
 	wjk2: Connection
-   	generic map(iw=>"1111100111011010")
-		port map(learnmode, j(2), k(2), ek, ej(2));
+		port map(learnmode, j(2), k(2), ek, ej(2), iw=>"0000000001000111");
 		
 	final: Neuron
 		port map(learnmode, k(0), k(1), k(2), lasterror, "0000000000000000", "0000000000000000", ek, classification);

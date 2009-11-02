@@ -28,30 +28,35 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity Connection is
-    generic ( IW : signed(15 downto 0));
     Port ( learnmode : in boolean;
            iv : in unsigned(7 downto 0);
            ov : out signed(15 downto 0);
            ie : in signed(15 downto 0);
-           oe : out signed(15 downto 0));
+           oe : out signed(15 downto 0);
+           iw : in signed(15 downto 0));
 end Connection;
 
 architecture Behavioral of Connection is
 
-signal w : signed(15 downto 0) := IW;
+signal w : signed(15 downto 0);
+signal trained : boolean := false;
+
 begin
+  
+  trained <= trained or learnmode;
   process(iv, ie)
     variable inter : signed(31 downto 0);
   begin
     case learnmode is
-    when true => 
+    when false => 
+      if (not trained) then w <= iw; end if;
       inter := (signed("00000000" & iv) * w);
       ov <= inter(23 downto 8);
-    when false =>
-        inter := ie * w;
-        oe <= inter(23 downto 8);
-        inter := (ie * signed("00000000" & iv));
-        w <= w + inter(28 downto 13); -- 2^-5 learning rate. Adjust window here.
+    when true =>
+      inter := ie * w;
+      oe <= inter(23 downto 8);
+      inter := (ie * signed("00000000" & iv));
+      w <= w + inter(24 downto 9);
     end case;
   end process;
 	

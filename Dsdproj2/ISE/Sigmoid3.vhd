@@ -92,7 +92,7 @@ begin
          
            --increment counter
            pow := pow + 1;
-           if pow > 10 then 
+           if pow > 50 then 
              done := false;
            end if;
          
