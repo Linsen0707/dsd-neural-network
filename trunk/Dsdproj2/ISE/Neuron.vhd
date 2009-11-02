@@ -45,28 +45,29 @@ architecture Mixed of Neuron is
     
 
   signal sum : signed (15 downto 0):="0000000000000000";
-	signal errsum : signed (15 downto 0):="0000000000000000";
+	signal errsum : signed (31 downto 0);
+	signal lastvalue : unsigned(7 downto 0);
 	
   component Sigmoid is
     Port ( X : in  signed(15 downto 0);
            Y : out  unsigned(7 downto 0));
    end component;
-	component Gaussian is
-    Port ( X : in  signed(15 downto 0);
-           Y : out  signed(15 downto 0));
-   end component;
 
 	
 begin
 
-  sigmoider: Sigmoid
-    port map(sum, outvalue);
-
-  gaussianer: Gaussian
-    port map(errsum, outerror);
-    
   sum <= ia + ib + ic;
-	errsum <= ea + eb + ec;
+  sigmoider: Sigmoid
+    port map(sum, lastvalue);
 
+  outvalue <= lastvalue;
+ 	outerror <= errsum(31 downto 16);
+ 
+  process (ea, eb, ec)
+   variable dvalue : signed (15 downto 0);
+  begin 
+   dvalue := signed(unsigned(0 - lastvalue) * unsigned(lastvalue));
+  	errsum <= (ea + eb + ec) * dvalue;
+  end process;	
 end Mixed;
 

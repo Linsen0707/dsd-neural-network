@@ -14,8 +14,8 @@ use floatfixlib.math_utility_pkg.ALL;
 --use UNISIM.VComponents.all;
 
 entity Gaussian is
-    Port ( X : in signed(15 downto 0):="0000000000000000";--X : in  signed(15 downto 0);
-           Y : out  unsigned(7 downto 0):="00000000");
+    Port ( X : in signed(15 downto 0);--X : in  signed(15 downto 0);
+           Y : out  signed(15 downto 0));
 end Gaussian;
 
 architecture Behavioral of Gaussian is
@@ -99,7 +99,7 @@ begin
       writeline(output,mline);
     loop_count <= pow;
   end process;
-  Y <= to_unsigned((val*256),8);
+  Y <= to_signed((val*256),16);
 end architecture Behavioral;
 
 library IEEE;
@@ -119,11 +119,11 @@ architecture Behavioral of TestGaussian is
 
   component Gaussian is
     Port ( X : in signed(15 downto 0);--X : in  signed(15 downto 0);
-           Y : out  unsigned(7 downto 0):="00000000");
+           Y : out  signed(15 downto 0));
   end component;
 
   signal Xin : signed(15 downto 0):="0000000000000000";
-  signal Yout : unsigned(7 downto 0);
+  signal Yout : signed(15 downto 0);
 
 begin
   Gaus: Gaussian port map( Xin, Yout);

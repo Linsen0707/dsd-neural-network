@@ -53,7 +53,7 @@ end TestSigmoid;
 
 architecture Behavioral of TestSigmoid is
     
-    component Sigmoid3 is
+    component Sigmoid is
       Port ( X : in  signed(15 downto 0);
              Y : out  unsigned(7 downto 0));
     end component;
@@ -63,13 +63,13 @@ architecture Behavioral of TestSigmoid is
   end component;
     
     signal inputs : signed(15 downto 0);
-    signal output : unsigned(7 downto 0);
+    signal output1 : unsigned(7 downto 0);
     signal val : Integer;
     begin
         
     --Unit Under Test
-        UUT: Sigmoid3
-           port map(inputs,output);
+        UUT1: Sigmoid
+           port map(inputs,output1);
          
          Gen: TestSigGen
           port map(inputs, val);
