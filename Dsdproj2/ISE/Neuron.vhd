@@ -46,6 +46,7 @@ architecture Mixed of Neuron is
 
   signal sum : signed (15 downto 0):="0000000000000000";
 	signal errsum : signed (31 downto 0);
+	signal dvalue : signed (31 downto 0);
 	signal lastvalue : unsigned(7 downto 0);
 	
   component Sigmoid is
@@ -61,13 +62,10 @@ begin
     port map(sum, lastvalue);
 
   outvalue <= lastvalue;
- 	outerror <= errsum(31 downto 16);
+    
+  dvalue <= signed(("0000000100000000" - ("00000000"&lastvalue)) * ("00000000"&lastvalue));
+  errsum <= (ea + eb + ec) * dvalue(23 downto 8);
+ 	outerror <= errsum(23 downto 8);
  
-  process (ea, eb, ec)
-   variable dvalue : signed (15 downto 0);
-  begin 
-   dvalue := signed(unsigned(0 - lastvalue) * unsigned(lastvalue));
-  	errsum <= (ea + eb + ec) * dvalue;
-  end process;	
 end Mixed;
 
