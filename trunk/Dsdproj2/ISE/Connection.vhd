@@ -46,12 +46,18 @@ begin
   trained <= trained or learnmode;
   process(iv, ie)
     variable inter : signed(31 downto 0);
+    variable nw : signed(15 downto 0);
   begin
     case learnmode is
     when false => 
-      if (not trained) then w <= iw; end if;
-      inter := (signed("00000000" & iv) * w);
+      if (not trained) then 
+        nw := iw;
+      else
+        nw := w;
+      end if;
+      inter := (signed("00000000" & iv) * nw);
       ov <= inter(23 downto 8);
+      w <= nw;
     when true =>
       inter := ie * w;
       oe <= inter(23 downto 8);
