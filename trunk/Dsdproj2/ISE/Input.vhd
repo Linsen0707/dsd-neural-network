@@ -21,19 +21,13 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
+--entity declaration
 entity Input is
-    Port ( Input : in  STD_LOGIC;
-           Output : out  unsigned (7 downto 0));
+    Port ( Input : in  STD_LOGIC;                 --input bit
+           Output : out  unsigned (7 downto 0));  --output vector
 end Input;
-
+--architecture declaration
 architecture Behavioral of Input is
-
 begin
 	process (Input)
 	begin
