@@ -27,11 +27,11 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Network is
-    Port (	testa : in  unsigned (7 downto 0);
-				testb : in  unsigned (7 downto 0);
-				classification : out  unsigned (7 downto 0);
-				lasterror : in signed(15 downto 0);
-				learnmode : in boolean);
+    Port (	testa : in  unsigned (7 downto 0);         --input value 0
+				testb : in  unsigned (7 downto 0);            --input value 1
+				classification : out  unsigned (7 downto 0);  --result from network
+				lasterror : in signed(15 downto 0);           --error from last calculation
+				learnmode : in boolean);                      --mode selection
 end Network;
 
 architecture Behavioral of Network is
