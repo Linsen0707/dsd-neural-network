@@ -52,7 +52,7 @@ begin
   end process;
   
   --display select
-  process (sw(6))
+  process (sw(6),outputs)
     variable switch : std_logic;
     begin
       switch := sw(6);
