@@ -7,7 +7,8 @@ entity Generator is
          b : out unsigned (7 downto 0);
          x : in unsigned (7 downto 0);
          e : out signed (15 downto 0);
-         mode : out boolean);
+         mode : out boolean;
+         done : out boolean);
 end Generator;
 
 architecture behavioral of Generator is
@@ -77,6 +78,7 @@ begin
         count := count + 1;
         wait for 5 ns;
       end loop;
+      done <= true;
      wait;
     end process;
 end architecture behavioral;
@@ -86,6 +88,9 @@ use IEEE.std_logic_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity Network_Testbench is
+     Port (	testa : in  unsigned (7 downto 0):="00000000";         --input value 0
+				testb : in  unsigned (7 downto 0):="00000000";            --input value 1
+				classification : out  unsigned (7 downto 0));          
 end entity Network_Testbench;
 
 architecture test of Network_Testbench is
@@ -94,7 +99,8 @@ architecture test of Network_Testbench is
              b : out unsigned (7 downto 0);
              x : in unsigned (7 downto 0);
              e : out signed (15 downto 0);
-             mode : out boolean);
+             mode : out boolean;
+             done : out boolean:=false);
    end component;
 
    component Network is 
@@ -105,15 +111,34 @@ architecture test of Network_Testbench is
 				learnmode : in boolean);
    end component;
    
-   signal a,b,x : unsigned (7 downto 0);
+   signal aN,bN,xN : unsigned (7 downto 0);
+   signal aG,bG,xG : unsigned (7 downto 0);
    signal e : signed(15 downto 0);
-   signal mode : boolean;
+   signal mode,done : boolean;
    
 begin
     dut:Network
-    port map(a,b,x,e,mode);
+    port map(aN,bN,xN,e,mode);
     
     gen:Generator
-    port map(a,b,x,e,mode);
+    port map(aG,bG,xG,e,mode,done);
+    
+  --aN <= aG;
+  --bN <= bG;
+  --xG <= xN;
+  
+  process (aG,bG,xN,testa,testb)
+    begin
+      if done then
+        aN <= testa;
+        bN <= testb;
+      else
+        aN <= aG;
+        bN <= bG;
+        xG <= xN;
+      end if;
+      classification <= xN;
+  end process;
+  
         
 end architecture;

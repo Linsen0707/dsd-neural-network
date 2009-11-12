@@ -25,17 +25,15 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 Entity Controller is
     Port (inputs : in std_logic_vector( 1 downto 0 );     --input values from switches
           mode : in boolean;
-          output : out std_logic_vector( 7 downto 0 ));   --output result for LEDs
+          output : out unsigned( 7 downto 0 ));   --output result for LEDs
 end Controller;
 
 architecture Behavioral of Controller is
 
-  component Network is
+  component Network_Testbench is
     Port (	testa : in  unsigned (7 downto 0);         --input value 0
 				testb : in  unsigned (7 downto 0);            --input value 1
-				classification : out  unsigned (7 downto 0);  --result from network
-				lasterror : in signed(15 downto 0);           --error from last calculation
-				learnmode : in boolean);                      --mode selection
+				classification : out  unsigned (7 downto 0));                      --mode selection
   end component;
   
   component Input is
@@ -72,30 +70,9 @@ begin
 	in2: Input
 		port map(inputs(1),changed(1));
 		
-	net: Network
-	  port map(netInputs(0),netInputs(1),result, error, modeSig0);
-		
-	err: ErrorCalc
-	  port map(inputs,result,error);
+	net: Network_Testbench
+	  port map(changed(0),changed(1),result);
 	  
-	tr: Trainer
-	   port map (trainputs(0),trainputs(1),result,error,modeSig1,startTrain);
+	  output <= result;
 	  
-	process (mode,modeSig1,trainputs)
-	begin
-	  if mode = true then
-	    startTrain<= true;
-	    modeSig0<=modeSig1;
-	    netInputs<=trainputs;
-    else
-	    startTrain<= false;
-	  end if;
-  end process;
-  
-  process (inputs)
-  begin
-    if mode = false then
-      netInputs <= changed;
-    end if;
-  end process;
 end Behavioral;          
