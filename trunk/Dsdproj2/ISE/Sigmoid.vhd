@@ -34,10 +34,10 @@ end Sigmoid;
 architecture Behavioral of Sigmoid is
   type array16 is array(6 downto 0) of signed(15 downto 0);
   type array32 is array(6 downto 0) of signed(31 downto 0);
-	signal slope : array16;
-	signal intercept : array32;
-	signal inval : integer;
-	signal temp : signed(31 downto 0);
+  signal slope : array16;
+  signal intercept : array32;
+  signal inval : integer;
+  signal temp : signed(31 downto 0);
 	
 begin
   slope(0) <= to_signed(0,16);

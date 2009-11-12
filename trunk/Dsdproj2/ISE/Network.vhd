@@ -56,7 +56,7 @@ architecture Behavioral of Network is
          oe : out signed(15 downto 0); 
          iw : in signed(15 downto 0));
 	end component;
-	
+	type uarray is unsigned(7 downto 0):=to_unsigned(0,8);
 	type prelevel is array(2 downto 0) of unsigned (7 downto 0);
 	type postlevel is array(2 downto 0) of signed (15 downto 0);
 	signal a : postlevel;

@@ -48,23 +48,54 @@ architecture Behavioral of Controller is
              result : in unsigned (7 downto 0);   --result from network
              error : out signed (15 downto 0));           --result of error calculation (output)
   end component;
+  
+  component Trainer is
+   Port (a : out unsigned (7 downto 0);
+         b : out unsigned (7 downto 0);
+         x : in unsigned (7 downto 0);
+         e : out signed (15 downto 0);
+         mode : out boolean;
+         train : in boolean);
+  end component;
 
   type conlevel is array(1 downto 0) of unsigned(7 downto 0);
-  signal netInputs : conlevel;
+  signal netInputs,changed,trainputs : conlevel;
   signal error : signed(15 downto 0);
   signal result : unsigned(7 downto 0);
+  signal startTrain,modeSig0,modeSig1 : boolean:=false;
 begin
   
   --instantiate components
   in1: Input
-		port map(inputs(0),netInputs(0));
+		port map(inputs(0),changed(0));
 		
 	in2: Input
-		port map(inputs(1),netInputs(1));
+		port map(inputs(1),changed(1));
 		
 	net: Network
-	  port map(netInputs(0),netInputs(1),result, error, mode);
+	  port map(netInputs(0),netInputs(1),result, error, modeSig0);
 		
 	err: ErrorCalc
 	  port map(inputs,result,error);
+	  
+	tr: Trainer
+	   port map (trainputs(0),trainputs(1),result,error,modeSig1,startTrain);
+	  
+	process (mode,modeSig1,trainputs)
+	begin
+	  if mode = true then
+	    startTrain<= true;
+	    modeSig0<=modeSig1;
+	    netInputs<=trainputs;
+    else
+	    startTrain<= false;
+	  end if;
+  end process;
+  
+  process (inputs)
+  begin
+    if mode = false then
+      netInputs <= changed;
+    end if;
+  end process;
 end Behavioral;          
