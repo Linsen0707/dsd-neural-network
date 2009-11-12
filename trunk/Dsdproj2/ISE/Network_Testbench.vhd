@@ -127,7 +127,7 @@ begin
   --bN <= bG;
   --xG <= xN;
   
-  process (aG,bG,xN,testa,testb)
+  process (aG,bG,xN,testa,testb)  --this forces the poweron testing for the inputs from normal to the generator, ouput is connected to both BIST Generator & ouput
     begin
       if done then
         aN <= testa;
