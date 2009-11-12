@@ -32,10 +32,10 @@ architecture Behavioral of UserController is
   component Controller is
       Port (inputs : in std_logic_vector( 1 downto 0 );     --input values from switches
           mode : in boolean;
-          output : out std_logic_vector( 7 downto 0 ));   --output result for LEDs
+          output : out unsigned(7 downto 0));
   end component;
 
-  signal outputs : std_logic_vector (7 downto 0);
+  signal outputs : unsigned (7 downto 0);
   signal mode : boolean;
   signal inputs : std_logic_vector (1 downto 0);
 begin
