@@ -56,7 +56,7 @@ begin
   intercept(5) <= to_signed(230,24) & "00000000";
   intercept(6) <= to_signed(255,24) & "00000000";
   
-  Y <= unsigned(temp(15 downto 8));
+  
 	   	    
 	process (X)
   	variable w : signed(7 downto 0);
@@ -89,8 +89,7 @@ begin
 	   	
 		if w >= to_signed(5,8) then
 		   temp<=slope(6)*X+intercept(6);
-	  end if;	  
-	  
+	  end if;
 	end process;
 	
 end Behavioral;

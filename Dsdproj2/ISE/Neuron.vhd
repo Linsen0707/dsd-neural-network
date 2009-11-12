@@ -36,7 +36,7 @@ entity Neuron is
        eb : in signed(15 downto 0);
        ec : in signed(15 downto 0);
        outerror : out signed(15 downto 0);  
-			 outvalue : out unsigned(7 downto 0) );
+			 outvalue : out unsigned(7 downto 0));
 end Neuron;
 
 
@@ -47,25 +47,31 @@ architecture Mixed of Neuron is
   signal sum : signed (15 downto 0):="0000000000000000";
 	signal errsum : signed (31 downto 0);
 	signal dvalue : signed (31 downto 0);
-	signal lastvalue : unsigned(7 downto 0);
+	signal lastvalue,output : unsigned(7 downto 0);
 	
   component Sigmoid is
     Port ( X : in  signed(15 downto 0);
            Y : out  unsigned(7 downto 0));
    end component;
 
-	
 begin
-
+  
   sum <= ia + ib + ic;
+  
   sigmoider: Sigmoid
     port map(sum, lastvalue);
 
-  outvalue <= lastvalue;
+  process(lastvalue)
+  begin
+    if lastvalue'EVENT and lastvalue /= output then
+      output <= lastvalue;
+      outvalue <= output;
     
-  dvalue <= signed(("0000000100000000" - ("00000000"&lastvalue)) * ("00000000"&lastvalue));
-  errsum <= (ea + eb + ec) * dvalue(23 downto 8);
- 	outerror <= errsum(23 downto 8);
+      dvalue <= signed(("0000000100000000" - ("00000000"&lastvalue)) * ("00000000"&lastvalue));
+      errsum <= (ea + eb + ec) * dvalue(23 downto 8);
+     	outerror <= errsum(23 downto 8);
+   	end if;
+ 	end process;
  
 end Mixed;
 
