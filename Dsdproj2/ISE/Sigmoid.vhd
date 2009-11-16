@@ -1,15 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky, Alex Karantza
 -- 
 -- Create Date:    18:58:47 10/15/2009 
--- Design Name: 
+-- Design Name: 	 DSD Project
 -- Module Name:    Sigmoid - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
 -- Tool versions: 
--- Description: 
---
+-- Description: 	This module calculates the Sigmod result of given values, thus reducing the number of bits
+--	needed to keep values between nodes of the system
 -- Dependencies: 
 --
 -- Revision: 

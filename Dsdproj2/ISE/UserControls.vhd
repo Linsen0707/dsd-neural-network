@@ -1,15 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Sam Skalicky
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
 -- 
 -- Create Date:    17:12:59 10/21/2009 
 -- Design Name:    DSD Project 
--- Module Name:    Input - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Module Name:    UserControls - Behavioral 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
 -- Tool versions: 
--- Description: 
---
+-- Description: 	This module is the controller interface for a demo version of the design utilizing multiple
+--	functions of the two inputs. As well as both H/L value or 8 bit unsigned result of network.
 -- Dependencies: 
 --
 -- Revision: 

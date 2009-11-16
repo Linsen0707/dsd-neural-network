@@ -1,14 +1,14 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Sam Skalicky
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
 -- 
 -- Create Date:    17:12:59 10/21/2009 
 -- Design Name:    DSD Project 
 -- Module Name:    Controller - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
 -- Tool versions: 
--- Description: 
+-- Description: 	This module will control the neural network to the user interface
 --
 -- Dependencies: 
 --

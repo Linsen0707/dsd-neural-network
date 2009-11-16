@@ -1,3 +1,22 @@
+----------------------------------------------------------------------------------
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
+-- 
+-- Create Date:    17:28:15 10/21/2009 
+-- Design Name: 	 DSD Project
+-- Module Name:    Network_Testbench - Behavioral 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
+-- Tool versions: 
+-- Description: 	This module is network tester as well as the training device to be used. This module is used everytime
+--		there is a power on, as well as anytime the function of the inputs changes (AND,OR,XOR)
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.NUMERIC_STD.all;
