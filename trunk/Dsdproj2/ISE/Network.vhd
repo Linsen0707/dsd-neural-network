@@ -1,14 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: RIT 
+-- Engineer: Alex Karantza
 -- 
 -- Create Date:    17:59:52 10/19/2009 
--- Design Name: 
+-- Design Name: 	 DSD Project
 -- Module Name:    Network - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Project Name:   DSD Project
+-- Target Devices: Spartan 3e-100
 -- Tool versions: 
--- Description: 
+-- Description:    Sets up the topology of the network
+--                 using connections and neurons
 --
 -- Dependencies: 
 --
@@ -27,7 +28,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Network is
-    Port (	testa : in  unsigned (7 downto 0);         --input value 0
+    Port (	testa : in  unsigned (7 downto 0);            --input value 0
 				testb : in  unsigned (7 downto 0);            --input value 1
 				classification : out  unsigned (7 downto 0);  --result from network
 				lasterror : in signed(15 downto 0);           --error from last calculation
@@ -36,6 +37,7 @@ end Network;
 
 architecture Behavioral of Network is
 
+	-- Uses Neurons
 	component Neuron
     Port (learnmode : in boolean;
        ia : in signed(15 downto 0);
@@ -48,6 +50,7 @@ architecture Behavioral of Network is
        outvalue : out unsigned(7 downto 0) );
 	end component;
 	
+	-- And Connections
 	component Connection
     Port ( learnmode : in boolean;
          iv : in unsigned(7 downto 0);
@@ -56,18 +59,33 @@ architecture Behavioral of Network is
          oe : out signed(15 downto 0); 
          iw : in signed(15 downto 0));
 	end component;
+
+	-- Set up types; each represents a handful of signals that connects layers
 	type prelevel is array(2 downto 0) of unsigned (7 downto 0);
 	type postlevel is array(2 downto 0) of signed (15 downto 0);
+
+	-- Input->Hidden wires
 	signal a : postlevel;
 	signal b : postlevel;
+
+	-- Hidden->Output wires
 	signal j : prelevel;
 	signal k : postlevel;
+
+	-- Hidden->Input error wires
 	signal einputa : postlevel;
 	signal einputb : postlevel;
+
+	-- Output->Hidden error wires
 	signal ei : postlevel;
 	signal ej : postlevel;
+
+	-- External->Output error wire
 	signal ek : signed(15 downto 0);
+
 begin
+
+	-- INPUT TO HIDDEN LAYER WEIGHTS
 	wij00: Connection
 		port map(learnmode, testa, a(0), ei(0), einputa(0), iw=>"0000000011010111");
 		
@@ -87,6 +105,8 @@ begin
 	wij12: Connection
 		port map(learnmode, testb, b(2), ei(2), einputb(2), iw=>"0000000000110010");
 
+	
+	-- HIDDEN LAYER
 	j1: Neuron
 		port map(learnmode, a(0), b(0), "0000000100000000", ej(0), "0000000000000000", "0000000000000000", ei(0), j(0));
 		
@@ -97,7 +117,7 @@ begin
 		port map(learnmode, a(2), b(2), "0000000100000000", ej(2), "0000000000000000", "0000000000000000", ei(2), j(2));
 		
 		    
-		
+	-- HIDDEN TO OUTPUT LAYER WEIGHTS
 	wjk0: Connection
 		port map(learnmode, j(0), k(0), ek, ej(0), iw=>"0000000001010101");
 	
@@ -107,6 +127,7 @@ begin
 	wjk2: Connection
 		port map(learnmode, j(2), k(2), ek, ej(2), iw=>"0000000001000111");
 		
+	-- OUTPUT LAYER
 	final: Neuron
 		port map(learnmode, k(0), k(1), k(2), lasterror, "0000000000000000", "0000000000000000", ek, classification);
 
