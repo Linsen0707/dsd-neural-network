@@ -1,15 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
 -- 
 -- Create Date:    17:28:15 10/21/2009 
--- Design Name: 
+-- Design Name: 	 DSD Project
 -- Module Name:    DUT - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
 -- Tool versions: 
--- Description: 
---
+-- Description: 	This module is an inital test of XOR function of neural network displaying all output
+--		on 8 leds (8 bit result)
 -- Dependencies: 
 --
 -- Revision: 

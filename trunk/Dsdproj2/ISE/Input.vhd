@@ -1,15 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
 -- 
 -- Create Date:    17:12:59 10/21/2009 
--- Design Name: 
+-- Design Name: 	 DSD Project
 -- Module Name:    Input - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
 -- Tool versions: 
--- Description: 
---
+-- Description: 	This module is the interface between the system and the external inputs, and converts
+--		values of H/L to 8 bit 0 and 1 values.
 -- Dependencies: 
 --
 -- Revision: 

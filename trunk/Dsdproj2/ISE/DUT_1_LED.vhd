@@ -1,14 +1,14 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
 -- 
 -- Create Date:    17:28:15 10/21/2009 
--- Design Name: 
+-- Design Name: 	 DSD Project
 -- Module Name:    DUT - Behavioral 
--- Project Name: 
--- Target Devices: 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
 -- Tool versions: 
--- Description: 
+-- Description: 	This module is the intial integration test of the neural network, displaying 2 led values for high/low
 --
 -- Dependencies: 
 --
