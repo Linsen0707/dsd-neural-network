@@ -1,3 +1,22 @@
+----------------------------------------------------------------------------------
+-- Company: 	RIT
+-- Engineer: 	Sam Skaicky
+-- 
+-- Create Date:    17:28:15 10/21/2009 
+-- Design Name: 	 DSD Project
+-- Module Name:    Gaussian~clean - Behavioral 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
+-- Tool versions: 
+-- Description: 	this module calculates the gaussian value of inputs to be used for determining error between nodes of the network
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
 --standard IEEE library
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
