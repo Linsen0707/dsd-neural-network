@@ -1,3 +1,22 @@
+----------------------------------------------------------------------------------
+-- Company: 	RIT
+-- Engineer: 	Sam Skalicky
+-- 
+-- Create Date:    17:28:15 10/21/2009 
+-- Design Name: 	 DSD Project
+-- Module Name:    TestPlaySig - Behavioral 
+-- Project Name: 	 DSD Project
+-- Target Devices: Spartan 3E-100
+-- Tool versions: 
+-- Description: 	This module tests the PlaySig sigmoid modules
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
