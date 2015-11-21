@@ -1,0 +1,1 @@
+Code repository for hosting of HDL and various docs for the project to create a neural network in hardware on an FPGA.
